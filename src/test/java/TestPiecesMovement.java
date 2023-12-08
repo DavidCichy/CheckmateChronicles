@@ -1,4 +1,5 @@
 import org.dc.cc.GameObjects.ChessPieces.King;
+import org.dc.cc.GameObjects.ChessPieces.Queen;
 import org.dc.cc.GameObjects.Chessboard.Board;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -9,7 +10,7 @@ public class TestPiecesMovement {
 
     @Test
     @DisplayName("King on Blank Board - Correct Movement")
-    public void testKingMovementCorrect(){
+    public void testKingMovementBlankBoardCorrect(){
         King king = new King();
 
         Assertions.assertTrue(king.isMoveValid(board.getField("A", "1"), board.getField("A", "2")));
@@ -25,7 +26,7 @@ public class TestPiecesMovement {
 
     @Test
     @DisplayName("King on Blank Board - Incorrect Movement")
-    public void testKingMovementIncorrect(){
+    public void testKingMovementBlankBoardIncorrect(){
         King king = new King();
         Assertions.assertFalse(king.isMoveValid(board.getField("A","1"), board.getField("A", "3")));
         Assertions.assertFalse(king.isMoveValid(board.getField("A","3"), board.getField("A", "1")));
@@ -37,4 +38,5 @@ public class TestPiecesMovement {
         Assertions.assertFalse(king.isMoveValid(board.getField("H","1"), board.getField("A", "1")));
         Assertions.assertFalse(king.isMoveValid(board.getField("A","1"), board.getField("H", "1")));
     }
+
 }
