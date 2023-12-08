@@ -2,9 +2,9 @@ package org.dc.cc.GameObjects.ChessPieces;
 
 import org.dc.cc.GameObjects.Chessboard.Field;
 
-public interface ChessPiece {
+public interface IChessPiece {
     ChessPieceType Type();
-    Field Position();
-    void move(Field to_field);
+    boolean isMoveValid(Field fromField, Field toField);
+    void move(Field tofield);
 
 }
