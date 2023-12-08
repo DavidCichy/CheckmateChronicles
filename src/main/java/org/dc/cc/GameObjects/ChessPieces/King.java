@@ -4,6 +4,7 @@ import org.dc.cc.GameObjects.Chessboard.Field;
 
 public class King extends ChessPiece implements IChessPiece {
     ChessPieceTypeEnum Type = ChessPieceTypeEnum.KING;
+
     public boolean isMoveValid(Field fromField, Field toField) {
         if (toField.getRow() == fromField.getRow() && Math.abs(fromField.getColumn().ordinal() - toField.getColumn().ordinal()) == 1){
             return true;
