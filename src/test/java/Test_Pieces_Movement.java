@@ -46,9 +46,13 @@ public class Test_Pieces_Movement {
         Field fromField4 = new Field(FilesEnum.C, RanksEnum.SEVEN);
         Field toField4 = new Field(FilesEnum.C, RanksEnum.FIVE);
 
+        Field fromField5 = new Field(FilesEnum.C, RanksEnum.EIGHT);
+        Field toField5 = new Field(FilesEnum.C, RanksEnum.ONE);
+
         Assertions.assertFalse(king.isMoveValid(fromField1, toField1));
         Assertions.assertFalse(king.isMoveValid(fromField2, toField2));
         Assertions.assertFalse(king.isMoveValid(fromField3, toField3));
         Assertions.assertFalse(king.isMoveValid(fromField4, toField4));
+        Assertions.assertFalse(king.isMoveValid(fromField5, toField5));
     }
 }
