@@ -1,9 +1,13 @@
 package org.dc.cc.GameObjects.Chessboard;
 
+import org.dc.cc.GameObjects.ChessPieces.ChessPiece;
+
 public class Field {
     final private FilesEnum Column;
     final private RanksEnum Row;
     final private FieldBackgroundEnum Color;
+
+    private ChessPiece ChessPiece;
     public Field(FilesEnum column, RanksEnum row) {
         Column = column;
         Row = row;
@@ -12,6 +16,7 @@ public class Field {
         } else {
             Color = FieldBackgroundEnum.WHITE;
         }
+        ChessPiece = null;
     }
 
     public FilesEnum getColumn() {
@@ -24,6 +29,14 @@ public class Field {
 
     public FieldBackgroundEnum getColor() {
         return Color;
+    }
+
+    public ChessPiece getChessPiece() {
+        return ChessPiece;
+    }
+
+    public void setChessPiece(ChessPiece chessPiece) {
+        ChessPiece = chessPiece;
     }
 
     public void showField(){
