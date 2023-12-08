@@ -32,9 +32,9 @@ public class Field {
         System.out.print(String.valueOf(Column));
         System.out.print(String.valueOf(Row.ordinal()+1));
         if (Color == FieldBackgroundEnum.WHITE){
-            System.out.print("W");
+            System.out.print("-W");
         } else if (Color == FieldBackgroundEnum.BLACK) {
-            System.out.print("B");
+            System.out.print("-B");
         }
         System.out.print(String.valueOf("] "));
         }

@@ -1,6 +1,6 @@
 package org.dc.cc;
 
-import org.dc.cc.Engine.FieldMapper;
+import org.dc.cc.Utilities.FieldMapper;
 import org.dc.cc.GameObjects.Chessboard.Board;
 
 public class Game {

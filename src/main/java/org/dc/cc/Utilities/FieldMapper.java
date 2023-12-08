@@ -1,4 +1,4 @@
-package org.dc.cc.Engine;
+package org.dc.cc.Utilities;
 import java.util.*;
 
 import org.dc.cc.GameObjects.Chessboard.Board;
