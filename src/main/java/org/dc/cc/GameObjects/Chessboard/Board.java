@@ -30,6 +30,13 @@ public class Board {
     }
     public Field getField(String column, String row) throws NullPointerException {
         FieldMapper fm = new FieldMapper();
+        return fm.mapField(column.toUpperCase(), row, this);
+    }
+
+    public Field getField(String cr) throws NullPointerException {
+        String column = cr.substring(0,1).toUpperCase();
+        String row = cr.substring(1,2);
+        FieldMapper fm = new FieldMapper();
         return fm.mapField(column, row, this);
     }
 
