@@ -1,5 +1,7 @@
 package org.dc.cc.GameObjects.Chessboard;
 
+import org.dc.cc.Utilities.FieldMapper;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +27,10 @@ public class Board {
             }
         }
         return null;
+    }
+    public Field getField(String column, String row) throws NullPointerException {
+        FieldMapper fm = new FieldMapper();
+        return fm.mapField(column, row, this);
     }
 
     public void showBoard(){
