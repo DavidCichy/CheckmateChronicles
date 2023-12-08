@@ -30,4 +30,25 @@ public class Test_Pieces_Movement {
         Assertions.assertTrue(king.isMoveValid(fromField3, toField3));
         Assertions.assertTrue(king.isMoveValid(fromField4, toField4));
     }
+
+    @Test
+    public void testKingMovementIncorrect(){
+        King king = new King();
+        Field fromField1 = new Field(FilesEnum.A, RanksEnum.ONE);
+        Field toField1 = new Field(FilesEnum.C, RanksEnum.ONE);
+
+        Field fromField2 = new Field(FilesEnum.C, RanksEnum.ONE);
+        Field toField2 = new Field(FilesEnum.A, RanksEnum.ONE);
+
+        Field fromField3 = new Field(FilesEnum.C, RanksEnum.FIVE);
+        Field toField3 = new Field(FilesEnum.C, RanksEnum.SEVEN);
+
+        Field fromField4 = new Field(FilesEnum.C, RanksEnum.SEVEN);
+        Field toField4 = new Field(FilesEnum.C, RanksEnum.FIVE);
+
+        Assertions.assertFalse(king.isMoveValid(fromField1, toField1));
+        Assertions.assertFalse(king.isMoveValid(fromField2, toField2));
+        Assertions.assertFalse(king.isMoveValid(fromField3, toField3));
+        Assertions.assertFalse(king.isMoveValid(fromField4, toField4));
+    }
 }
