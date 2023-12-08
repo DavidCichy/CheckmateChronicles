@@ -1,5 +1,5 @@
 package org.dc.cc.GameObjects.ChessPieces;
 
-public enum ChessPieceType {
+public enum ChessPieceTypeEnum {
     PAWN, BISHOP,KNIGHT,ROOK,QUEEN,KING;
 }
