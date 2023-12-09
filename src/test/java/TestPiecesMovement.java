@@ -39,4 +39,32 @@ public class TestPiecesMovement {
         Assertions.assertFalse(king.isMoveValid(board.getField("A","1"), board.getField("H", "1")));
     }
 
+
+
+    @Test
+    @DisplayName("Queen on Blank Board - Correct Movement - Horizontal and Vertical")
+    public void testQueenMovementBlankBoardCorrect(){
+        Queen queen = new Queen();
+        Assertions.assertTrue(queen.isMoveValid(board.getField("A","1"), board.getField("A", "2")));
+        Assertions.assertTrue(queen.isMoveValid(board.getField("A","2"), board.getField("A", "1")));
+        Assertions.assertTrue(queen.isMoveValid(board.getField("A","1"), board.getField("A", "3")));
+        Assertions.assertTrue(queen.isMoveValid(board.getField("A","3"), board.getField("A", "1")));
+        Assertions.assertTrue(queen.isMoveValid(board.getField("A","1"), board.getField("A", "8")));
+        Assertions.assertTrue(queen.isMoveValid(board.getField("A","8"), board.getField("A", "1")));
+
+        Assertions.assertTrue(queen.isMoveValid(board.getField("A","1"), board.getField("H", "1")));
+        Assertions.assertTrue(queen.isMoveValid(board.getField("H","1"), board.getField("A", "1")));
+    }
+    @Test
+    @DisplayName("Queen on Blank Board - Correct Movement - Diagonal")
+    public void testQueenMovementBlankBoardCorrectDiagonal(){
+        Queen queen = new Queen();
+        Assertions.assertTrue(queen.isMoveValid(board.getField("A1"), board.getField("c3")));
+        Assertions.assertTrue(queen.isMoveValid(board.getField("c3"), board.getField("a1")));
+        Assertions.assertTrue(queen.isMoveValid(board.getField("a1"), board.getField("h8")));
+        Assertions.assertTrue(queen.isMoveValid(board.getField("h8"), board.getField("a1")));
+        Assertions.assertTrue(queen.isMoveValid(board.getField("h1"), board.getField("a8")));
+        Assertions.assertTrue(queen.isMoveValid(board.getField("a8"), board.getField("h1")));
+    }
+
 }
