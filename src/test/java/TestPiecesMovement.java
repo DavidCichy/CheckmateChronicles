@@ -2,12 +2,14 @@ import org.dc.cc.GameObjects.ChessPieces.*;
 import org.dc.cc.GameObjects.Chessboard.Board;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 
 public class TestPiecesMovement {
     Board board = new Board();
 
     @Test
+    @Order(1)
     @DisplayName("King on Blank Board - Correct Movement")
     public void testKingMovementBlankBoardCorrect(){
         IChessPiece piece = new King();
@@ -24,6 +26,7 @@ public class TestPiecesMovement {
     }
 
     @Test
+    @Order(2)
     @DisplayName("King on Blank Board - Incorrect Movement")
     public void testKingMovementBlankBoardIncorrect(){
         IChessPiece piece = new King();
@@ -41,6 +44,7 @@ public class TestPiecesMovement {
 
 
     @Test
+    @Order(3)
     @DisplayName("Queen on Blank Board - Correct Movement - Horizontal and Vertical")
     public void testQueenMovementBlankBoardCorrect(){
         IChessPiece piece = new Queen();
@@ -55,6 +59,7 @@ public class TestPiecesMovement {
         Assertions.assertTrue(piece.isMoveValid(board.getField("H","1"), board.getField("A", "1")));
     }
     @Test
+    @Order(4)
     @DisplayName("Queen on Blank Board - Correct Movement - Diagonal")
     public void testQueenMovementBlankBoardCorrectDiagonal(){
         IChessPiece piece = new Queen();
@@ -66,6 +71,7 @@ public class TestPiecesMovement {
         Assertions.assertTrue(piece.isMoveValid(board.getField("a8"), board.getField("h1")));
     }
     @Test
+    @Order(7)
     @DisplayName("Knight - Correct Movement")
     public void testKnightMovementCorrect(){
         IChessPiece piece = new Knight();
@@ -82,6 +88,7 @@ public class TestPiecesMovement {
     }
 
     @Test
+    @Order(8)
     @DisplayName("Knight - Incorrect Movement")
     public void testKnightMovementIncorrect(){
         IChessPiece piece = new Knight();
@@ -98,6 +105,7 @@ public class TestPiecesMovement {
         Assertions.assertFalse(piece.isMoveValid(board.getField("A1"), board.getField("H7")));
     }
     @Test
+    @Order(5)
     @DisplayName("Bishop on Blank Board - Correct Movement")
     public void testBishopMovementBlankBoardCorrect(){
         IChessPiece piece = new Bishop();
@@ -109,6 +117,7 @@ public class TestPiecesMovement {
         Assertions.assertTrue(piece.isMoveValid(board.getField("A8"), board.getField("H1")));
     }
     @Test
+    @Order(6)
     @DisplayName("Bishop on Blank Board - Incorrect Movement")
     public void testBishopMovementBlankBoardIncorrect(){
         IChessPiece piece = new Bishop();
