@@ -8,6 +8,9 @@ public class Bishop extends ChessPiece implements IChessPiece{
     }
 
     public boolean isMoveValid(Field fromField, Field toField) {
+        if (Math.abs(fromField.getRow().ordinal() - toField.getRow().ordinal()) == Math.abs(fromField.getColumn().ordinal() - toField.getColumn().ordinal())){
+            return true;
+        }
         return false;
     }
 }
