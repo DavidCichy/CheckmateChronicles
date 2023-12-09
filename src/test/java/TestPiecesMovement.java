@@ -97,4 +97,28 @@ public class TestPiecesMovement {
         Assertions.assertTrue(piece.isMoveValid(board.getField("G7"), board.getField("A8")));
         Assertions.assertTrue(piece.isMoveValid(board.getField("A1"), board.getField("H7")));
     }
+    @Test
+    @DisplayName("Bishop on Blank Board - Correct Movement")
+    public void testBishopMovementBlankBoardCorrect(){
+        IChessPiece piece = new Bishop();
+        Assertions.assertTrue(piece.isMoveValid(board.getField("A1"), board.getField("C3")));
+        Assertions.assertTrue(piece.isMoveValid(board.getField("C3"), board.getField("A1")));
+        Assertions.assertTrue(piece.isMoveValid(board.getField("A1"), board.getField("H8")));
+        Assertions.assertTrue(piece.isMoveValid(board.getField("H8"), board.getField("A1")));
+        Assertions.assertTrue(piece.isMoveValid(board.getField("H1"), board.getField("A8")));
+        Assertions.assertTrue(piece.isMoveValid(board.getField("A8"), board.getField("H1")));
+    }
+    @Test
+    @DisplayName("Bishop on Blank Board - Incorrect Movement")
+    public void testBishopMovementBlankBoardIncorrect(){
+        IChessPiece piece = new Bishop();
+        Assertions.assertTrue(piece.isMoveValid(board.getField("A1"), board.getField("B3")));
+        Assertions.assertTrue(piece.isMoveValid(board.getField("B3"), board.getField("A1")));
+        Assertions.assertTrue(piece.isMoveValid(board.getField("A1"), board.getField("H7")));
+        Assertions.assertTrue(piece.isMoveValid(board.getField("H7"), board.getField("A1")));
+        Assertions.assertTrue(piece.isMoveValid(board.getField("H1"), board.getField("H2")));
+        Assertions.assertTrue(piece.isMoveValid(board.getField("H2"), board.getField("H1")));
+    }
+
+
 }
