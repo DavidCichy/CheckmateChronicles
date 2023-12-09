@@ -67,7 +67,7 @@ public class TestPiecesMovement {
     }
     @Test
     @DisplayName("Knight - Correct Movement")
-    public void testKnightMovementcorrect(){
+    public void testKnightMovementCorrect(){
         IChessPiece piece = new Knight();
 
         Assertions.assertTrue(piece.isMoveValid(board.getField("A1"), board.getField("C2")));
@@ -77,7 +77,7 @@ public class TestPiecesMovement {
 
         Assertions.assertTrue(piece.isMoveValid(board.getField("D4"), board.getField("E6")));
         Assertions.assertTrue(piece.isMoveValid(board.getField("E6"), board.getField("D4")));
-        Assertions.assertTrue(piece.isMoveValid(board.getField("B", "1"), board.getField("A", "2")));
-        Assertions.assertTrue(piece.isMoveValid(board.getField("A", "2"), board.getField("B", "1")));
+        Assertions.assertTrue(piece.isMoveValid(board.getField("E5"), board.getField("F3")));
+        Assertions.assertTrue(piece.isMoveValid(board.getField("F3"), board.getField("E5")));
     }
 }
