@@ -8,6 +8,12 @@ public class Knight extends ChessPiece implements IChessPiece{
     }
 
     public boolean isMoveValid(Field fromField, Field toField) {
+        if (Math.abs(fromField.getColumn().ordinal() - toField.getColumn().ordinal()) == 2 && Math.abs(fromField.getRow().ordinal() - toField.getRow().ordinal()) == 1){
+            return true;
+        }
+        if (Math.abs(fromField.getColumn().ordinal() - toField.getColumn().ordinal()) == 1 && Math.abs(fromField.getRow().ordinal() - toField.getRow().ordinal()) == 2){
+            return true;
+        }
         return false;
     }
 }
