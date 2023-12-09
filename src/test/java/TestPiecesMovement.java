@@ -118,6 +118,8 @@ public class TestPiecesMovement {
         Assertions.assertTrue(piece.isMoveValid(board.getField("H7"), board.getField("A1")));
         Assertions.assertTrue(piece.isMoveValid(board.getField("H1"), board.getField("H2")));
         Assertions.assertTrue(piece.isMoveValid(board.getField("H2"), board.getField("H1")));
+        Assertions.assertTrue(piece.isMoveValid(board.getField("E8"), board.getField("F1")));
+        Assertions.assertTrue(piece.isMoveValid(board.getField("F1"), board.getField("E8")));
     }
 
 
