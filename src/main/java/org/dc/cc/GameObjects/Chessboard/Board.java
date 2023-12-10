@@ -1,5 +1,6 @@
 package org.dc.cc.GameObjects.Chessboard;
 
+import org.dc.cc.GameObjects.ChessPieces.ChessPiece;
 import org.dc.cc.Utilities.FieldMapper;
 
 import java.util.ArrayList;
@@ -33,10 +34,13 @@ public class Board {
         return fm.mapField(column.toUpperCase(), row, this);
     }
 
-    public Field getField(String cr) throws NullPointerException {
+    public Field getField(String cr) throws NullPointerException, IllegalArgumentException {
+        if (cr.length() != 2){
+            throw new IllegalArgumentException();
+        }
+        FieldMapper fm = new FieldMapper();
         String column = cr.substring(0,1).toUpperCase();
         String row = cr.substring(1,2);
-        FieldMapper fm = new FieldMapper();
         return fm.mapField(column, row, this);
     }
 
@@ -48,5 +52,24 @@ public class Board {
             }
             System.out.print("\n");
         }
+    }
+
+    public void moveChessPiece(Field fromField, Field toField){
+        if (!fromField.hasChessPiece()){
+            throw new Error("No chesspiece on a field");
+        }
+        ChessPiece piece = fromField.getChessPiece();
+        fromField.removeChessPiece();
+        toField.setChessPiece(piece);
+    }
+
+    public void moveChessPiece(FilesEnum fromColumn, RanksEnum fromRow, FilesEnum toColumn, RanksEnum toRow){
+        Field fromField = getField(fromColumn, fromRow);
+        Field toField = getField(toColumn, toRow);
+        moveChessPiece(fromField, toField);
+    }
+
+    public void moveChessPiece(String fromField, String toField){
+        moveChessPiece(getField(fromField), getField(toField));
     }
 }
