@@ -39,6 +39,11 @@ public class Field {
         ChessPiece = chessPiece;
     }
 
+    public void removeChessPiece(){ ChessPiece = null;
+    }
+
+    public boolean hasChessPiece(){return ChessPiece != null;}
+
     public void showField(){
 
         System.out.print(String.valueOf("["));
