@@ -70,8 +70,25 @@ public class TestPiecesMovement {
         Assertions.assertTrue(piece.isMoveValid(board.getField("h1"), board.getField("a8")));
         Assertions.assertTrue(piece.isMoveValid(board.getField("a8"), board.getField("h1")));
     }
+
     @Test
-    @Order(7)
+    @Order(5)
+    @DisplayName("Knight - Correct Movement")
+    public void testQueenMovementIncorrect(){
+        IChessPiece piece = new Queen();
+
+        Assertions.assertFalse(piece.isMoveValid(board.getField("A1"), board.getField("C2")));
+        Assertions.assertFalse(piece.isMoveValid(board.getField("C2"), board.getField("A1")));
+        Assertions.assertFalse(piece.isMoveValid(board.getField("A1"), board.getField("B3")));
+        Assertions.assertFalse(piece.isMoveValid(board.getField("B3"), board.getField("A1")));
+
+        Assertions.assertFalse(piece.isMoveValid(board.getField("D4"), board.getField("E6")));
+        Assertions.assertFalse(piece.isMoveValid(board.getField("E6"), board.getField("D4")));
+        Assertions.assertFalse(piece.isMoveValid(board.getField("E5"), board.getField("F3")));
+        Assertions.assertFalse(piece.isMoveValid(board.getField("F3"), board.getField("E5")));
+    }
+    @Test
+    @Order(8)
     @DisplayName("Knight - Correct Movement")
     public void testKnightMovementCorrect(){
         IChessPiece piece = new Knight();
@@ -88,7 +105,7 @@ public class TestPiecesMovement {
     }
 
     @Test
-    @Order(8)
+    @Order(9)
     @DisplayName("Knight - Incorrect Movement")
     public void testKnightMovementIncorrect(){
         IChessPiece piece = new Knight();
@@ -105,7 +122,7 @@ public class TestPiecesMovement {
         Assertions.assertFalse(piece.isMoveValid(board.getField("A1"), board.getField("H7")));
     }
     @Test
-    @Order(5)
+    @Order(6)
     @DisplayName("Bishop on Blank Board - Correct Movement")
     public void testBishopMovementBlankBoardCorrect(){
         IChessPiece piece = new Bishop();
@@ -117,7 +134,7 @@ public class TestPiecesMovement {
         Assertions.assertTrue(piece.isMoveValid(board.getField("A8"), board.getField("H1")));
     }
     @Test
-    @Order(6)
+    @Order(7)
     @DisplayName("Bishop on Blank Board - Incorrect Movement")
     public void testBishopMovementBlankBoardIncorrect(){
         IChessPiece piece = new Bishop();
@@ -132,7 +149,7 @@ public class TestPiecesMovement {
     }
 
     @Test
-    @Order(9)
+    @Order(10)
     @DisplayName("Rook on Blank Board - Correct Movement")
     public void testRookMovementBlankBoardCorrect(){
         IChessPiece piece = new Rook();
@@ -147,7 +164,7 @@ public class TestPiecesMovement {
         Assertions.assertTrue(piece.isMoveValid(board.getField("H","1"), board.getField("A", "1")));
     }
     @Test
-    @Order(10)
+    @Order(11)
     @DisplayName("Rook on Blank Board - Incorrect Movement")
     public void testRookMovementBlankBoardIncorrect(){
         IChessPiece piece = new Rook();
