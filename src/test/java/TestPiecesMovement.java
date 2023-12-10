@@ -131,5 +131,43 @@ public class TestPiecesMovement {
         Assertions.assertFalse(piece.isMoveValid(board.getField("F1"), board.getField("E8")));
     }
 
+    @Test
+    @Order(9)
+    @DisplayName("Rook on Blank Board - Correct Movement")
+    public void testRookMovementBlankBoardCorrect(){
+        IChessPiece piece = new Rook();
+        Assertions.assertTrue(piece.isMoveValid(board.getField("A","1"), board.getField("A", "2")));
+        Assertions.assertTrue(piece.isMoveValid(board.getField("A","2"), board.getField("A", "1")));
+        Assertions.assertTrue(piece.isMoveValid(board.getField("A","1"), board.getField("A", "3")));
+        Assertions.assertTrue(piece.isMoveValid(board.getField("A","3"), board.getField("A", "1")));
+        Assertions.assertTrue(piece.isMoveValid(board.getField("A","1"), board.getField("A", "8")));
+        Assertions.assertTrue(piece.isMoveValid(board.getField("A","8"), board.getField("A", "1")));
+
+        Assertions.assertTrue(piece.isMoveValid(board.getField("A","1"), board.getField("H", "1")));
+        Assertions.assertTrue(piece.isMoveValid(board.getField("H","1"), board.getField("A", "1")));
+    }
+    @Test
+    @Order(10)
+    @DisplayName("Rook on Blank Board - Incorrect Movement")
+    public void testRookMovementBlankBoardIncorrect(){
+        IChessPiece piece = new Rook();
+        Assertions.assertFalse(piece.isMoveValid(board.getField("A1"), board.getField("C3")));
+        Assertions.assertFalse(piece.isMoveValid(board.getField("C3"), board.getField("A1")));
+        Assertions.assertFalse(piece.isMoveValid(board.getField("A1"), board.getField("H8")));
+        Assertions.assertFalse(piece.isMoveValid(board.getField("H8"), board.getField("A1")));
+        Assertions.assertFalse(piece.isMoveValid(board.getField("H1"), board.getField("A8")));
+        Assertions.assertFalse(piece.isMoveValid(board.getField("A8"), board.getField("H1")));
+
+        Assertions.assertFalse(piece.isMoveValid(board.getField("A1"), board.getField("C2")));
+        Assertions.assertFalse(piece.isMoveValid(board.getField("C2"), board.getField("A1")));
+        Assertions.assertFalse(piece.isMoveValid(board.getField("A1"), board.getField("B3")));
+        Assertions.assertFalse(piece.isMoveValid(board.getField("B3"), board.getField("A1")));
+
+        Assertions.assertFalse(piece.isMoveValid(board.getField("D4"), board.getField("E6")));
+        Assertions.assertFalse(piece.isMoveValid(board.getField("E6"), board.getField("D4")));
+        Assertions.assertFalse(piece.isMoveValid(board.getField("E5"), board.getField("F3")));
+        Assertions.assertFalse(piece.isMoveValid(board.getField("F3"), board.getField("E5")));
+    }
+
 
 }
