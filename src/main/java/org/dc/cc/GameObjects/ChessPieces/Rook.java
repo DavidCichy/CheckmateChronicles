@@ -8,6 +8,6 @@ public class Rook extends ChessPiece implements IChessPiece{
     }
 
     public boolean isMoveValid(Field fromField, Field toField) {
-        return false;
+        return fromField.getColumn() == toField.getColumn() || fromField.getRow() == toField.getRow();
     }
 }
