@@ -12,10 +12,10 @@ public class Pawn extends ChessPiece implements IChessPiece{
 
     public boolean isMoveValid(Field fromField, Field toField) {
         if (super.Side == ChessPieceSideEnum.WHITE){
-            return toField.getRow().ordinal() - fromField.getRow().ordinal() == 1;
+            return fromField.getColumn() == toField.getColumn() && toField.getRow().ordinal() - fromField.getRow().ordinal() == 1;
         }
         if (super.Side == ChessPieceSideEnum.BLACK){
-            return toField.getRow().ordinal() - fromField.getRow().ordinal() == -1;
+            return fromField.getColumn() == toField.getColumn() && toField.getRow().ordinal() - fromField.getRow().ordinal() == -1;
         }
 
         return false;
