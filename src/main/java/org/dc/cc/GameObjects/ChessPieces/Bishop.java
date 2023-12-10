@@ -4,7 +4,10 @@ import org.dc.cc.GameObjects.Chessboard.Field;
 
 public class Bishop extends ChessPiece implements IChessPiece{
     public Bishop() {
-        Type = ChessPieceTypeEnum.BISHOP;
+        super(ChessPieceTypeEnum.BISHOP);
+    }
+    public Bishop(ChessPieceSideEnum side) {
+        super(side, ChessPieceTypeEnum.BISHOP);
     }
 
     public boolean isMoveValid(Field fromField, Field toField) {
