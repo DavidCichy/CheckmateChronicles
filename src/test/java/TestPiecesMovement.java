@@ -202,7 +202,7 @@ public class TestPiecesMovement {
     }
 
     @Test
-    @Order(12)
+    @Order(13)
     @DisplayName("Pawn (Black) on Blank Board - Correct Movement")
     public void testPawnMovementBlackBlankBoardCorrect(){
         IChessPiece piece = new Pawn(ChessPieceSideEnum.BLACK);
@@ -214,6 +214,46 @@ public class TestPiecesMovement {
 
         Assertions.assertTrue(piece.isMoveValid(board.getField("H","2"), board.getField("H", "1")));
         Assertions.assertTrue(piece.isMoveValid(board.getField("B","2"), board.getField("B", "1")));
+    }
+    @Test
+    @Order(12)
+    @DisplayName("Pawn (White) on Blank Board - Incorrect Movement")
+    public void testPawnMovementWhiteBlankBoardIncorrect(){
+        IChessPiece piece = new Pawn(ChessPieceSideEnum.WHITE);
+
+        Assertions.assertFalse(piece.isMoveValid(board.getField("A","7"), board.getField("A", "6")));
+        Assertions.assertFalse(piece.isMoveValid(board.getField("A","6"), board.getField("A", "5")));
+
+        Assertions.assertFalse(piece.isMoveValid(board.getField("A","7"), board.getField("B", "7")));
+        Assertions.assertFalse(piece.isMoveValid(board.getField("B","7"), board.getField("A", "6")));
+
+        Assertions.assertFalse(piece.isMoveValid(board.getField("A","7"), board.getField("B", "8")));
+        Assertions.assertFalse(piece.isMoveValid(board.getField("B","8"), board.getField("A", "7")));
+
+        Assertions.assertFalse(piece.isMoveValid(board.getField("D","5"), board.getField("C", "6")));
+        Assertions.assertFalse(piece.isMoveValid(board.getField("C","6"), board.getField("D", "5")));
+
+
+    }
+
+    @Test
+    @Order(13)
+    @DisplayName("Pawn (Black) on Blank Board - Incorrect Movement")
+    public void testPawnMovementBlackBlankBoardIncorrect(){
+        IChessPiece piece = new Pawn(ChessPieceSideEnum.BLACK);
+
+        Assertions.assertFalse(piece.isMoveValid(board.getField("A","1"), board.getField("A", "2")));
+        Assertions.assertFalse(piece.isMoveValid(board.getField("A","2"), board.getField("A", "3")));
+
+        Assertions.assertFalse(piece.isMoveValid(board.getField("A","7"), board.getField("B", "7")));
+        Assertions.assertFalse(piece.isMoveValid(board.getField("B","7"), board.getField("A", "6")));
+
+        Assertions.assertFalse(piece.isMoveValid(board.getField("A","7"), board.getField("B", "8")));
+        Assertions.assertFalse(piece.isMoveValid(board.getField("B","8"), board.getField("A", "7")));
+
+        Assertions.assertFalse(piece.isMoveValid(board.getField("D","5"), board.getField("C", "6")));
+        Assertions.assertFalse(piece.isMoveValid(board.getField("C","6"), board.getField("D", "5")));
+
     }
 
 }
