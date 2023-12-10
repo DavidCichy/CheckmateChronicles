@@ -5,7 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 
-public class TestPiecesMovement {
+public class TestPiecesMovementOnEmptyBoard {
     Board board = new Board();
 
     @Test
