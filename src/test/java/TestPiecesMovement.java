@@ -186,5 +186,34 @@ public class TestPiecesMovement {
         Assertions.assertFalse(piece.isMoveValid(board.getField("F3"), board.getField("E5")));
     }
 
+    @Test
+    @Order(12)
+    @DisplayName("Pawn (White) on Blank Board - Correct Movement")
+    public void testPawnMovementWhiteBlankBoardCorrect(){
+        IChessPiece piece = new Pawn(ChessPieceSideEnum.WHITE);
+        Assertions.assertTrue(piece.isMoveValid(board.getField("A","1"), board.getField("A", "2")));
+        Assertions.assertTrue(piece.isMoveValid(board.getField("A","2"), board.getField("A", "3")));
+
+        Assertions.assertTrue(piece.isMoveValid(board.getField("D","2"), board.getField("D", "3")));
+        Assertions.assertTrue(piece.isMoveValid(board.getField("D","3"), board.getField("D", "4")));
+
+        Assertions.assertTrue(piece.isMoveValid(board.getField("H","7"), board.getField("H", "8")));
+        Assertions.assertTrue(piece.isMoveValid(board.getField("B","7"), board.getField("B", "8")));
+    }
+
+    @Test
+    @Order(12)
+    @DisplayName("Pawn (Black) on Blank Board - Correct Movement")
+    public void testPawnMovementBlackBlankBoardCorrect(){
+        IChessPiece piece = new Pawn(ChessPieceSideEnum.BLACK);
+        Assertions.assertTrue(piece.isMoveValid(board.getField("A","7"), board.getField("A", "6")));
+        Assertions.assertTrue(piece.isMoveValid(board.getField("A","6"), board.getField("A", "5")));
+
+        Assertions.assertTrue(piece.isMoveValid(board.getField("D","3"), board.getField("D", "2")));
+        Assertions.assertTrue(piece.isMoveValid(board.getField("D","4"), board.getField("D", "3")));
+
+        Assertions.assertTrue(piece.isMoveValid(board.getField("H","2"), board.getField("H", "1")));
+        Assertions.assertTrue(piece.isMoveValid(board.getField("B","2"), board.getField("B", "1")));
+    }
 
 }
