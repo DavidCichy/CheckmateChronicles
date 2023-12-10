@@ -1,13 +1,14 @@
 package org.dc.cc.GameObjects.Chessboard;
 
 import org.dc.cc.GameObjects.ChessPieces.ChessPiece;
+import org.dc.cc.GameObjects.ChessPieces.ChessPieceTypeEnum;
 
 public class Field {
     final private FilesEnum Column;
     final private RanksEnum Row;
     final private FieldBackgroundEnum Color;
 
-    private ChessPiece ChessPiece;
+    private ChessPiece chessPiece;
     public Field(FilesEnum column, RanksEnum row) {
         Column = column;
         Row = row;
@@ -16,7 +17,7 @@ public class Field {
         } else {
             Color = FieldBackgroundEnum.WHITE;
         }
-        ChessPiece = null;
+        chessPiece = null;
     }
 
     public FilesEnum getColumn() {
@@ -32,17 +33,17 @@ public class Field {
     }
 
     public ChessPiece getChessPiece() {
-        return ChessPiece;
+        return chessPiece;
     }
 
     public void setChessPiece(ChessPiece chessPiece) {
-        ChessPiece = chessPiece;
+        this.chessPiece = chessPiece;
     }
 
-    public void removeChessPiece(){ ChessPiece = null;
+    public void removeChessPiece(){ chessPiece = null;
     }
 
-    public boolean hasChessPiece(){return ChessPiece != null;}
+    public boolean hasChessPiece(){return chessPiece != null;}
 
     public void showField(){
 
@@ -53,6 +54,13 @@ public class Field {
             System.out.print("-W");
         } else if (Color == FieldBackgroundEnum.BLACK) {
             System.out.print("-B");
+        }
+        if (!this.hasChessPiece()){
+            System.out.print("-O00000");
+        } else {
+            System.out.print("-");
+            System.out.print(chessPiece.getIcon());
+            System.out.print(String.valueOf(chessPiece.getPlayer().getSide()));
         }
         System.out.print(String.valueOf("] "));
         }

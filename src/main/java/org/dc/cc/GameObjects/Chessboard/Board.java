@@ -1,30 +1,30 @@
 package org.dc.cc.GameObjects.Chessboard;
 
 import org.dc.cc.GameObjects.ChessPieces.ChessPiece;
+import org.dc.cc.GameObjects.Players.Player;
 import org.dc.cc.Utilities.FieldMapper;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Board {
-    List<Field> Fields;
+    List<Field> fields;
 
     public Board() {
         create();
     }
 
     void create(){
-        Fields = new ArrayList<>();
+        fields = new ArrayList<>();
         for (FilesEnum column : FilesEnum.values()){
             for(RanksEnum row : RanksEnum.values()){
-                Fields.add(new Field(column, row));
+                fields.add(new Field(column, row));
             }
         }
     }
     public Field getField(FilesEnum column, RanksEnum row) throws NullPointerException {
-        for (int i = 0; i < Fields.size(); i++) {
-            if (Fields.get(i).getColumn() == column && Fields.get(i).getRow() == row) {
-                return Fields.get(i);
+        for (int i = 0; i < fields.size(); i++) {
+            if (fields.get(i).getColumn() == column && fields.get(i).getRow() == row) {
+                return fields.get(i);
             }
         }
         return null;
@@ -71,5 +71,37 @@ public class Board {
 
     public void moveChessPiece(String fromField, String toField){
         moveChessPiece(getField(fromField), getField(toField));
+    }
+
+    public void putChessPiece(Field field, ChessPiece chessPiece)
+    {
+        field.setChessPiece(chessPiece);
+    }
+
+    public void putChessPiece(String fieldString, ChessPiece chessPiece)
+    {
+        Field field = getField(fieldString);
+        putChessPiece(field, chessPiece);
+    }
+
+    public Map<ChessPiece, Field> getChessPieceForPlayerList(Player player){
+        Map<ChessPiece, Field> chessPiecesForPlayer = new HashMap<>();
+        for (Field field : fields){
+            if (field.hasChessPiece() && field.getChessPiece().getPlayer() == player){
+                chessPiecesForPlayer.put(field.getChessPiece(), field);
+            }
+        }
+        return chessPiecesForPlayer;
+    }
+
+    public void showPiecesOfPlayer(Player player){
+        Map<ChessPiece, Field> chessPiecesForPlayer = getChessPieceForPlayerList(player);
+        for (Map.Entry<ChessPiece, Field> piece: chessPiecesForPlayer.entrySet()){
+            System.out.print(piece.getKey().getType());
+            System.out.print(": ");
+            System.out.print(piece.getValue().getColumn());
+            System.out.print(piece.getValue().getRow().ordinal()+1);
+            System.out.println();
+        }
     }
 }

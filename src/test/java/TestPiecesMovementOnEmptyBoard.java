@@ -1,5 +1,6 @@
 import org.dc.cc.GameObjects.ChessPieces.*;
 import org.dc.cc.GameObjects.Chessboard.Board;
+import org.dc.cc.GameObjects.Players.Player;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Order;
@@ -190,7 +191,9 @@ public class TestPiecesMovementOnEmptyBoard {
     @Order(12)
     @DisplayName("Pawn (White) on Blank Board - Correct Movement")
     public void testPawnMovementWhiteBlankBoardCorrect(){
-        IChessPiece piece = new Pawn(ChessPieceSideEnum.WHITE);
+        IChessPiece piece = new Pawn();
+        piece.setPlayer(new Player(ChessPieceSideEnum.WHITE));
+
         Assertions.assertTrue(piece.isMoveValid(board.getField("A","1"), board.getField("A", "2")));
         Assertions.assertTrue(piece.isMoveValid(board.getField("A","2"), board.getField("A", "3")));
 
@@ -205,7 +208,9 @@ public class TestPiecesMovementOnEmptyBoard {
     @Order(13)
     @DisplayName("Pawn (Black) on Blank Board - Correct Movement")
     public void testPawnMovementBlackBlankBoardCorrect(){
-        IChessPiece piece = new Pawn(ChessPieceSideEnum.BLACK);
+        IChessPiece piece = new Pawn();
+        piece.setPlayer(new Player(ChessPieceSideEnum.BLACK));
+
         Assertions.assertTrue(piece.isMoveValid(board.getField("A","7"), board.getField("A", "6")));
         Assertions.assertTrue(piece.isMoveValid(board.getField("A","6"), board.getField("A", "5")));
 
@@ -219,7 +224,8 @@ public class TestPiecesMovementOnEmptyBoard {
     @Order(12)
     @DisplayName("Pawn (White) on Blank Board - Incorrect Movement")
     public void testPawnMovementWhiteBlankBoardIncorrect(){
-        IChessPiece piece = new Pawn(ChessPieceSideEnum.WHITE);
+        IChessPiece piece = new Pawn();
+        piece.setPlayer(new Player(ChessPieceSideEnum.WHITE));
 
         Assertions.assertFalse(piece.isMoveValid(board.getField("A","7"), board.getField("A", "6")));
         Assertions.assertFalse(piece.isMoveValid(board.getField("A","6"), board.getField("A", "5")));
@@ -240,7 +246,8 @@ public class TestPiecesMovementOnEmptyBoard {
     @Order(13)
     @DisplayName("Pawn (Black) on Blank Board - Incorrect Movement")
     public void testPawnMovementBlackBlankBoardIncorrect(){
-        IChessPiece piece = new Pawn(ChessPieceSideEnum.BLACK);
+        IChessPiece piece = new Pawn();
+        piece.setPlayer(new Player(ChessPieceSideEnum.BLACK));
 
         Assertions.assertFalse(piece.isMoveValid(board.getField("A","1"), board.getField("A", "2")));
         Assertions.assertFalse(piece.isMoveValid(board.getField("A","2"), board.getField("A", "3")));

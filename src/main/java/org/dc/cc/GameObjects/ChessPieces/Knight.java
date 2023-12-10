@@ -4,10 +4,7 @@ import org.dc.cc.GameObjects.Chessboard.Field;
 
 public class Knight extends ChessPiece implements IChessPiece{
     public Knight() {
-        super(ChessPieceTypeEnum.KNIGHT);
-    }
-    public Knight(ChessPieceSideEnum side) {
-        super(side, ChessPieceTypeEnum.KNIGHT);
+        super(ChessPieceTypeEnum.KNIGHT, "N");
     }
 
     public boolean isMoveValid(Field fromField, Field toField) {

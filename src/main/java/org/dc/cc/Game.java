@@ -1,5 +1,6 @@
 package org.dc.cc;
 
+import org.dc.cc.Engine.Engine;
 import org.dc.cc.Utilities.FieldMapper;
 import org.dc.cc.GameObjects.Chessboard.Board;
 
@@ -9,9 +10,9 @@ public class Game {
     }
 
     void runGame(){
-        Board board = new Board();
-        board.showBoard();
-        FieldMapper fieldMapper = new FieldMapper();
-        fieldMapper.mapField("A", "1", board).showField();
+        Engine engine = new Engine();
+        engine.createBoard();
+        engine.showBoard();
+
     }
 }

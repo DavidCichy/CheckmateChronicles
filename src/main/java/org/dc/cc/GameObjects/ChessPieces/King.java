@@ -4,10 +4,7 @@ import org.dc.cc.GameObjects.Chessboard.Field;
 
 public class King extends ChessPiece implements IChessPiece {
     public King() {
-        super(ChessPieceTypeEnum.KING);
-    }
-    public King(ChessPieceSideEnum side) {
-        super(side, ChessPieceTypeEnum.KING);
+        super(ChessPieceTypeEnum.KING, "K");
     }
 
     public boolean isMoveValid(Field fromField, Field toField) {

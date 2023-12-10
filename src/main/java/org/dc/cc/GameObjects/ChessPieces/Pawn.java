@@ -3,18 +3,16 @@ package org.dc.cc.GameObjects.ChessPieces;
 import org.dc.cc.GameObjects.Chessboard.Field;
 
 public class Pawn extends ChessPiece implements IChessPiece{
+
     public Pawn() {
-        super(ChessPieceTypeEnum.PAWN);
-    }
-    public Pawn(ChessPieceSideEnum side) {
-        super(side, ChessPieceTypeEnum.PAWN);
+        super(ChessPieceTypeEnum.PAWN, "P");
     }
 
     public boolean isMoveValid(Field fromField, Field toField) {
-        if (super.Side == ChessPieceSideEnum.WHITE){
+        if (super.player.getSide() == ChessPieceSideEnum.WHITE){
             return fromField.getColumn() == toField.getColumn() && toField.getRow().ordinal() - fromField.getRow().ordinal() == 1;
         }
-        if (super.Side == ChessPieceSideEnum.BLACK){
+        if (super.player.getSide() == ChessPieceSideEnum.BLACK){
             return fromField.getColumn() == toField.getColumn() && toField.getRow().ordinal() - fromField.getRow().ordinal() == -1;
         }
 

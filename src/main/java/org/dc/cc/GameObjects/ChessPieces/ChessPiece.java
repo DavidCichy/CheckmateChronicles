@@ -1,18 +1,33 @@
 package org.dc.cc.GameObjects.ChessPieces;
 
-public class ChessPiece {
-    protected final ChessPieceTypeEnum Type;
-    protected ChessPieceSideEnum Side;
+import org.dc.cc.GameObjects.Players.Player;
 
-    public ChessPiece(ChessPieceTypeEnum type) {
-        Type = type;
-    }
-    public ChessPiece(ChessPieceSideEnum side, ChessPieceTypeEnum type) {
-        Side = side;
-        Type = type;
+public class ChessPiece {
+    protected final ChessPieceTypeEnum type;
+    protected Player player;
+    protected final String icon;
+    public ChessPiece(ChessPieceTypeEnum type, String icon) {
+        this.type = type;
+        this.icon = icon;
     }
 
     public ChessPieceTypeEnum getType() {
-        return Type;
+        if (type != null) {
+            return this.type;
+        }
+        return ChessPieceTypeEnum.NONE;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+
+    public String getIcon() {
+        return this.icon;
     }
 }
