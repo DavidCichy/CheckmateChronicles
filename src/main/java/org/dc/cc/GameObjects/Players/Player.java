@@ -2,12 +2,13 @@ package org.dc.cc.GameObjects.Players;
 
 import org.dc.cc.GameObjects.ChessPieces.ChessPiece;
 import org.dc.cc.GameObjects.ChessPieces.ChessPieceSideEnum;
+import org.dc.cc.GameObjects.ChessPieces.IChessPiece;
 
 import java.util.LinkedList;
 
 public class Player {
     private final ChessPieceSideEnum side;
-    private LinkedList<ChessPiece> pieces;
+    private LinkedList<IChessPiece> pieces;
 
     public Player(ChessPieceSideEnum side) {
         this.side = side;
@@ -18,7 +19,7 @@ public class Player {
         return side;
     }
 
-    public void addPiece(ChessPiece piece){
+    public void addPiece(IChessPiece piece){
         pieces.add(piece);
     }
 

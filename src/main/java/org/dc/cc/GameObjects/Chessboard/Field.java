@@ -2,13 +2,14 @@ package org.dc.cc.GameObjects.Chessboard;
 
 import org.dc.cc.GameObjects.ChessPieces.ChessPiece;
 import org.dc.cc.GameObjects.ChessPieces.ChessPieceTypeEnum;
+import org.dc.cc.GameObjects.ChessPieces.IChessPiece;
 
 public class Field {
     final private FilesEnum Column;
     final private RanksEnum Row;
     final private FieldBackgroundEnum Color;
 
-    private ChessPiece chessPiece;
+    private IChessPiece chessPiece;
     public Field(FilesEnum column, RanksEnum row) {
         Column = column;
         Row = row;
@@ -32,11 +33,11 @@ public class Field {
         return Color;
     }
 
-    public ChessPiece getChessPiece() {
+    public IChessPiece getChessPiece() {
         return chessPiece;
     }
 
-    public void setChessPiece(ChessPiece chessPiece) {
+    public void setChessPiece(IChessPiece chessPiece) {
         this.chessPiece = chessPiece;
     }
 

@@ -1,9 +1,11 @@
 package org.dc.cc.GameObjects.Chessboard;
 
 import org.dc.cc.GameObjects.ChessPieces.ChessPiece;
+import org.dc.cc.GameObjects.ChessPieces.IChessPiece;
 import org.dc.cc.GameObjects.Players.Player;
 import org.dc.cc.Utilities.FieldMapper;
 
+import java.io.File;
 import java.util.*;
 
 public class Board {
@@ -45,20 +47,23 @@ public class Board {
     }
 
     public void showBoard(){
-        for (int i = FilesEnum.values().length - 1; i >= 0; --i) {
-            FilesEnum column = FilesEnum.values()[i];
-            for(RanksEnum row : RanksEnum.values()){
+        for (int i = RanksEnum.values().length -1; i>=0; i--){
+            RanksEnum row = RanksEnum.values()[i];
+            for (FilesEnum column : FilesEnum.values()){
                 getField(column, row).showField();
             }
             System.out.print("\n");
         }
     }
 
-    public void moveChessPiece(Field fromField, Field toField){
+    public void moveChessPiece(Field fromField, Field toField) throws Error{
         if (!fromField.hasChessPiece()){
             throw new Error("No chesspiece on a field");
         }
-        ChessPiece piece = fromField.getChessPiece();
+        if (!fromField.getChessPiece().isMoveValid(fromField, toField)){
+            throw new Error("Incorrect movement.");
+        }
+        IChessPiece piece = fromField.getChessPiece();
         fromField.removeChessPiece();
         toField.setChessPiece(piece);
     }
@@ -69,23 +74,24 @@ public class Board {
         moveChessPiece(fromField, toField);
     }
 
-    public void moveChessPiece(String fromField, String toField){
+    public void moveChessPiece(String fromField, String toField) throws Error{
         moveChessPiece(getField(fromField), getField(toField));
+
     }
 
-    public void putChessPiece(Field field, ChessPiece chessPiece)
+    public void putChessPiece(Field field, IChessPiece chessPiece)
     {
         field.setChessPiece(chessPiece);
     }
 
-    public void putChessPiece(String fieldString, ChessPiece chessPiece)
+    public void putChessPiece(String fieldString, IChessPiece chessPiece)
     {
         Field field = getField(fieldString);
         putChessPiece(field, chessPiece);
     }
 
-    public Map<ChessPiece, Field> getChessPieceForPlayerList(Player player){
-        Map<ChessPiece, Field> chessPiecesForPlayer = new HashMap<>();
+    public Map<IChessPiece, Field> getChessPieceForPlayerList(Player player){
+        Map<IChessPiece, Field> chessPiecesForPlayer = new HashMap<>();
         for (Field field : fields){
             if (field.hasChessPiece() && field.getChessPiece().getPlayer() == player){
                 chessPiecesForPlayer.put(field.getChessPiece(), field);
@@ -95,8 +101,8 @@ public class Board {
     }
 
     public void showPiecesOfPlayer(Player player){
-        Map<ChessPiece, Field> chessPiecesForPlayer = getChessPieceForPlayerList(player);
-        for (Map.Entry<ChessPiece, Field> piece: chessPiecesForPlayer.entrySet()){
+        Map<IChessPiece, Field> chessPiecesForPlayer = getChessPieceForPlayerList(player);
+        for (Map.Entry<IChessPiece, Field> piece: chessPiecesForPlayer.entrySet()){
             System.out.print(piece.getKey().getType());
             System.out.print(": ");
             System.out.print(piece.getValue().getColumn());

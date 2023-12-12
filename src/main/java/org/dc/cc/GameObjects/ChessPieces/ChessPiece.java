@@ -12,10 +12,10 @@ public class ChessPiece {
     }
 
     public ChessPieceTypeEnum getType() {
-        if (type != null) {
-            return this.type;
+        if (type == null) {
+            return ChessPieceTypeEnum.NONE;
         }
-        return ChessPieceTypeEnum.NONE;
+        return this.type;
     }
 
     public Player getPlayer() {
