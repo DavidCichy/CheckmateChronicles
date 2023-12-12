@@ -5,8 +5,8 @@ import org.dc.cc.GameObjects.Chessboard.Field;
 public class Pawn extends ChessPiece implements IChessPiece{
 
     public Pawn() {
-        super(ChessPieceTypeEnum.PAWN, "P");
-    }
+        super(ChessPieceTypeEnum.PAWN);
+        super.icon = "P" ;}
 
     public boolean isMoveValid(Field fromField, Field toField) {
         if (super.player.getSide() == ChessPieceSideEnum.WHITE){

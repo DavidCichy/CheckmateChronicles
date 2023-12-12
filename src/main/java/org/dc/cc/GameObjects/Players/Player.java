@@ -23,4 +23,7 @@ public class Player {
         pieces.add(piece);
     }
 
+    public LinkedList<IChessPiece> getPieces() {
+        return pieces;
+    }
 }

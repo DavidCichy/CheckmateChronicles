@@ -5,15 +5,14 @@ import org.dc.cc.GameObjects.Players.Player;
 public class ChessPiece {
     protected final ChessPieceTypeEnum type;
     protected Player player;
-    protected final String icon;
-    public ChessPiece(ChessPieceTypeEnum type, String icon) {
+    protected String icon;
+    public ChessPiece(ChessPieceTypeEnum type) {
         this.type = type;
-        this.icon = icon;
     }
 
     public ChessPieceTypeEnum getType() {
         if (type == null) {
-            return ChessPieceTypeEnum.NONE;
+            return null;
         }
         return this.type;
     }

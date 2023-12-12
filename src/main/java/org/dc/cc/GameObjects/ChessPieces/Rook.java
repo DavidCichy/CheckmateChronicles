@@ -4,7 +4,8 @@ import org.dc.cc.GameObjects.Chessboard.Field;
 
 public class Rook extends ChessPiece implements IChessPiece{
     public Rook() {
-        super(ChessPieceTypeEnum.ROOK, "R");
+        super(ChessPieceTypeEnum.ROOK);
+        super.icon = "R" ;
     }
 
     public boolean isMoveValid(Field fromField, Field toField) {
