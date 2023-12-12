@@ -4,6 +4,7 @@ import org.dc.cc.GameObjects.ChessPieces.ChessPiece;
 import org.dc.cc.GameObjects.ChessPieces.IChessPiece;
 import org.dc.cc.GameObjects.Players.Player;
 import org.dc.cc.Utilities.FieldMapper;
+import org.dc.cc.View.View;
 
 import java.io.File;
 import java.util.*;
@@ -47,13 +48,7 @@ public class Board {
     }
 
     public void showBoard(){
-        for (int i = RanksEnum.values().length -1; i>=0; i--){
-            RanksEnum row = RanksEnum.values()[i];
-            for (FilesEnum column : FilesEnum.values()){
-                getField(column, row).showField();
-            }
-            System.out.print("\n");
-        }
+        View.showBoard(this);
     }
 
     public void moveChessPiece(Field fromField, Field toField) throws Error{
