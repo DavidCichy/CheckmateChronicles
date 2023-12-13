@@ -10,7 +10,7 @@ public class FieldMapper {
     public FieldMapper() {
     }
 
-    public Field mapField(String inputColumn, String inputRow, Board board){
+    public static Field mapField(String inputColumn, String inputRow, Board board){
         Map<String, FilesEnum> columnMap = new HashMap<String, FilesEnum>();
         Map<String, RanksEnum> rowMap = new HashMap<String, RanksEnum>();
         for (FilesEnum file : FilesEnum.values()){
@@ -23,5 +23,9 @@ public class FieldMapper {
         FilesEnum column = columnMap.get(inputColumn);
         RanksEnum row = rowMap.get(inputRow);
         return board.getField(column, row);
+    }
+
+    public static Field mapField(String inputField, Board board){
+        return mapField(inputField.substring(0,1), inputField.substring(1,2), board);
     }
 }
