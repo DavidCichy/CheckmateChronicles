@@ -3,6 +3,7 @@ package org.dc.cc.Engine;
 import org.dc.cc.GameObjects.Chessboard.Board;
 import org.dc.cc.GameObjects.Chessboard.Field;
 import org.dc.cc.GameObjects.Players.Player;
+import org.dc.cc.Utilities.DataImporter;
 import org.dc.cc.Utilities.FieldMapper;
 
 import java.util.ArrayList;
@@ -18,6 +19,10 @@ public class ChessMatch {
 
     public Board getBoard() {
         return board;
+    }
+
+    public void showBoard(){
+        board.showBoard();
     }
 
     public ArrayList<Player> getPlayers() {

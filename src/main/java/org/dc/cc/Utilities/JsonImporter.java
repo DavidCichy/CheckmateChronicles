@@ -48,31 +48,11 @@ public class JsonImporter {
                         board.putChessPiece(chessPosition.toString(), chess);}
                     } catch (IllegalArgumentException ignored){}
                 }
-
-//                for (ChessPieceTypeEnum chessType : ChessPieceTypeEnum.values()){
-//                    JSONArray chessPositions = (JSONArray) side_obj.get(chessType.toString());
-//                    for (Object chessPosition : chessPositions) {
-//                            String chessClassName = "org.dc.cc.GameObjects.ChessPieces.".concat(chessType.toString().substring(0,1).toUpperCase().concat(chessType.toString().substring(1).toLowerCase()));
-//                            Class<?> chessClass = Class.forName(chessClassName);
-//                            IChessPiece chess = (IChessPiece) chessClass.newInstance();
-//                            chess.setPlayer(player);
-//                            player.addPiece(chess);
-//                            board.putChessPiece(chessPosition.toString(), chess);
-//                        }
-//                    }
                 }
-            } catch (IOException ex) {
-            throw new RuntimeException(ex);
-        } catch (ParseException ex) {
-            throw new RuntimeException(ex);
-        } catch (ClassNotFoundException ex) {
-            throw new RuntimeException(ex);
-        } catch (InstantiationException ex) {
-            throw new RuntimeException(ex);
-        } catch (IllegalAccessException ex) {
+            } catch (IOException | ParseException | ClassNotFoundException | InstantiationException |
+                     IllegalAccessException ex) {
             throw new RuntimeException(ex);
         }
-
 
 
         return new ChessMatch(board, players);
