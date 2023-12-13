@@ -1,5 +1,6 @@
 package org.dc.cc.GameObjects.Chessboard;
 
+import org.dc.cc.Engine.IncorrectMovementError;
 import org.dc.cc.GameObjects.ChessPieces.ChessPiece;
 import org.dc.cc.GameObjects.ChessPieces.IChessPiece;
 import org.dc.cc.GameObjects.Players.Player;
@@ -56,27 +57,26 @@ public class Board {
         }
     }
 
-    public void moveChessPiece(Field fromField, Field toField) throws Error{
+    public void moveChessPiece(Field fromField, Field toField) throws IncorrectMovementError{
         if (!fromField.hasChessPiece()){
-            throw new Error("No chesspiece on a field");
+            throw new IncorrectMovementError("No chesspiece on a field");
         }
         if (!fromField.getChessPiece().isMoveValid(fromField, toField)){
-            throw new Error("Incorrect movement.");
+            throw new IncorrectMovementError("Illegal movement.");
         }
         IChessPiece piece = fromField.getChessPiece();
         fromField.removeChessPiece();
         toField.setChessPiece(piece);
     }
 
-    public void moveChessPiece(FilesEnum fromColumn, RanksEnum fromRow, FilesEnum toColumn, RanksEnum toRow){
+    public void moveChessPiece(FilesEnum fromColumn, RanksEnum fromRow, FilesEnum toColumn, RanksEnum toRow) throws IncorrectMovementError {
         Field fromField = getField(fromColumn, fromRow);
         Field toField = getField(toColumn, toRow);
         moveChessPiece(fromField, toField);
     }
 
-    public void moveChessPiece(String fromField, String toField) throws Error{
+    public void moveChessPiece(String fromField, String toField) throws IncorrectMovementError{
         moveChessPiece(getField(fromField), getField(toField));
-
     }
 
     public void putChessPiece(Field field, IChessPiece chessPiece)
