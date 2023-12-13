@@ -5,11 +5,11 @@ import org.dc.cc.GameObjects.Players.Player;
 
 import java.util.ArrayList;
 
-public class Match {
+public class ChessMatch {
     Board board;
     ArrayList<Player> players;
 
-    public Match(Board board, ArrayList<Player> players) {
+    public ChessMatch(Board board, ArrayList<Player> players) {
         this.board = board;
         this.players = players;
     }

@@ -1,6 +1,6 @@
 package org.dc.cc.Utilities;
 
-import org.dc.cc.Engine.Match;
+import org.dc.cc.Engine.ChessMatch;
 import org.dc.cc.GameObjects.ChessPieces.*;
 import org.dc.cc.GameObjects.Chessboard.Board;
 import org.dc.cc.GameObjects.Players.Player;
@@ -18,7 +18,7 @@ import java.util.*;
 public class JsonImporter {
     private static final String fileName = "src/main/resources/board.json";
 
-    public static Match importNewGameChessBoard() {
+    public static ChessMatch importNewGameChessBoard() {
         Board board = new Board();
         ArrayList<Player> players = new ArrayList<>();
 
@@ -75,6 +75,6 @@ public class JsonImporter {
 
 
 
-        return new Match(board, players);
+        return new ChessMatch(board, players);
     }
 }

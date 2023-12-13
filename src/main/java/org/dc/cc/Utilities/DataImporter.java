@@ -1,9 +1,9 @@
 package org.dc.cc.Utilities;
 
-import org.dc.cc.Engine.Match;
+import org.dc.cc.Engine.ChessMatch;
 
 public class DataImporter {
-    public static Match initiateNewChessMatch(){
+    public static ChessMatch initiateNewChessMatch(){
         return JsonImporter.importNewGameChessBoard();
     }
 }
