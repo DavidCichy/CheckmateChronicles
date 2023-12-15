@@ -3,6 +3,7 @@ package org.dc.cc.GameObjects.Chessboard;
 import org.dc.cc.GameObjects.ChessPieces.ChessPiece;
 import org.dc.cc.GameObjects.ChessPieces.ChessPieceTypeEnum;
 import org.dc.cc.GameObjects.ChessPieces.IChessPiece;
+import org.dc.cc.View.View;
 
 public class Field {
     final private FilesEnum Column;
@@ -47,22 +48,6 @@ public class Field {
     public boolean hasChessPiece(){return chessPiece != null;}
 
     public void showField(){
-
-        System.out.print(String.valueOf("["));
-        System.out.print(String.valueOf(Column));
-        System.out.print(String.valueOf(Row.ordinal()+1));
-        if (Color == FieldBackgroundEnum.WHITE){
-            System.out.print("-W");
-        } else if (Color == FieldBackgroundEnum.BLACK) {
-            System.out.print("-B");
-        }
-        if (!this.hasChessPiece()){
-            System.out.print("-O00000");
-        } else {
-            System.out.print("-");
-            System.out.print(chessPiece.getIcon());
-            System.out.print(String.valueOf(chessPiece.getPlayer().getSide()));
-        }
-        System.out.print(String.valueOf("] "));
+        View.showField(this);
         }
     }
